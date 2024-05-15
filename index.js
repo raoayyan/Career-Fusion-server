@@ -10,7 +10,9 @@ const adzunajob = require('./routes/adzunajob')
 const app =  express();
 
 app.use(express.json())   // Express application to parse incoming requests with JSON payloads.
-app.use(cors());
+app.use(cors({
+  origin: '*' // Allow requests from all origins (not recommended for production)
+}));
 
 // Use Adzuna routes
 app.use('/serpapi-job-search', adzunajob);
